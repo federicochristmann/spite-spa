@@ -1,0 +1,45 @@
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        {% if player.is_winner %}
+            You win the auction!
+        {% else %}
+            You lose the auction.
+        {% endif %}
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>Your value</th>
+            <th>Your bid</th>
+            <th>Winning bid</th>
+            <th>Second-highest bid</th>
+            <th>You pay</th>
+            <th>Your payoff</th>
+        </tr>
+
+        <tr>
+            <td>{{ player.private_value }}</td>
+            <td>{{ player.bid_amount }}</td>
+            <td>{{ group.highest_bid }}</td>
+            <td>{{ group.second_highest_bid }}</td>
+            <td>
+                {% if player.is_winner %}
+                    {{ group.second_highest_bid }}
+                {% else %}
+                    {{ player.payoff }}
+                {% endif %}
+            </td>
+            <td>{{ player.payoff }}</td>
+        </tr>
+
+    </table>
+
+    {% next_button %}
+
+{% endblock %}

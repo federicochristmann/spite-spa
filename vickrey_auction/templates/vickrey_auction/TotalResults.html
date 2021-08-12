@@ -1,0 +1,32 @@
+{% block title %}
+    Total results
+{% endblock %}
+
+{% block content %}
+
+
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Your payoff</th>
+            <th>Total</th>
+        </tr>
+
+        {% for player in player_in_all_rounds %}
+        <tr>
+            <td>{{ player.round_number }}</td>
+            <td>{{ player.payoff }}</td>
+        <tr>
+        {% endfor %}
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td>{{ total_payoff }}</td>
+        </tr>
+
+    </table>
+
+    {% next_button %}
+
+{% endblock %}
