@@ -1,5 +1,4 @@
-from otree.api import Currency as c, currency_range, SubmissionMustFail
-from . import pages
+from .import pages
 from ._builtin import Bot
 from .models import Constants
 
@@ -11,7 +10,7 @@ class PlayerBot(Bot):
         case = self.case
 
         # Introduction
-        yield (pages.Introduction)
+        yield (pages.Instructions)
 
         if case == 'p1_wins':
             if self.player.id_in_group == 1:
@@ -21,7 +20,7 @@ class PlayerBot(Bot):
         elif case == 'all_0':
             bid_amount = 0
         else:  # case == 'all_max':
-            bid_amount = Constants.endowment
+            bid_amount = Constants.max_value
         yield (pages.Bid, {"bid_amount": bid_amount})
 
         assert self.player.payoff >= 0

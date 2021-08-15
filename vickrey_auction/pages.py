@@ -1,19 +1,25 @@
 from ._builtin import Page, WaitPage
 
 
-class Introduction(Page):
+class Instructions(Page):
     def is_displayed(self):
         return self.round_number == 1
+
+    timeout_seconds = 7.5*60
 
 
 class Signal(Page):
     form_model = 'player'
     form_fields = ['signal_purchase']
 
+    timeout_seconds = 50
+
 
 class Bid(Page):
     form_model = 'player'
     form_fields = ['bid_amount']
+
+    timeout_seconds = 50
 
 
 class ResultsWaitPage(WaitPage):
@@ -22,7 +28,7 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    pass
+    timeout_seconds = 40
 
 
 class TotalResults(Page):
@@ -45,16 +51,28 @@ class Survey(Page):
     form_model = 'player'
     form_fields = [
         'name', 'age', 'gender', 'phone', 'solidarity', 'envy', 'overbidding', 'bachelor', 'quantitative_training',
-        'economics'
+        'economics', 'economics_level'
+        ]
+
+
+class SurveyBachelor(Page):
+    def is_displayed(self):
+        player = self.player
+        return player.bachelor == 1
+
+    form_model = 'player'
+    form_fields = [
+        'name',
         ]
 
 
 page_sequence = [
-    Introduction,
+    Instructions,
     Signal,
     Bid,
     ResultsWaitPage,
     Results,
     TotalResults,
-    Survey
+    Survey,
+    SurveyBachelor
     ]

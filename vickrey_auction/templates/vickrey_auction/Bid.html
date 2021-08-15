@@ -1,3 +1,20 @@
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+
+
 {% block title %}
     Second price auction game: bid
 {% endblock %}
@@ -8,13 +25,12 @@
     <p>
         Recall that the player with the highest bid gets the object, and she pays a price equal to the rival's bid. The player
         with the lowest bid does not get the object, nor she pays for it. [TREATMENT 1: The signal reveals your rival's value
-        half of the times.] [TREATMENT 2: The signal reveals your rival's value.]
-        [WITHIN TREATMENT: This round you are playing against a bot!]
+        half of the times.] [TREATMENT 2: The signal reveals your rival's value.] [WITHIN TREATMENT: This round you are playing
+        against a bot!]
     </p>
     <p>
-        The value of the object to you is <strong>{{ player.private_value }}</strong>.
-        If you win the auction, you would have a payoff of
-        <strong>{{ player.private_value }} - second highest bid</strong>.
+        You value the object in <strong>{{ player.private_value }}</strong>. If you win the auction, you have
+        a payoff of <strong>{{ player.private_value }} - second highest bid</strong>.
     </p>
 
     <div class="form-group required">
@@ -25,7 +41,6 @@
     </div>
 
     {% next_button %}
-
 
 {% endblock %}
 

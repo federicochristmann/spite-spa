@@ -1,4 +1,4 @@
-{% load otree static %}
+{% block content %}
 
 <div class="card bg-light instructions">
     <div class="card-body">
@@ -10,19 +10,23 @@
     <p>
         Welcome! Thank you very much for joining this experiment that is part of my Master Thesis at UC3M. Right now you
         are participating in a lottery of an 80 dollars Amazon gift card! Notice <strong>your probability of winning is
-        based on your performance</strong>, so please read the instructions carefully (it is not possible to read them again).
+        based on your relative performance</strong>, so please read the instructions carefully (it is not possible to read
+        them again).
     </p>
+
     <p>
         The experiment consists on playing a second price auction. This is, you want to get an object (say a smartphone)
         that you <strong>value</strong> it in a certain amount of ECU (experimental currency units), but there is a rival
         that also wants it. You will make a <strong>bid</strong> (in ECU) for the smartphone, and your rival will make another
         bid <strong>at the same time</strong> (i.e. you do not know it at the moment you bid). The player that offer the
         <strong>highest bid will get the smartphone</strong>, but she <strong>pays an amount equal to the lowest bid</strong>.
-        For example, assume you value the smartphone in 80 ECU and your rival values it in 50 ECU, but you do not know it.
-        If you choose a bid of 80 ECU and your rival choose a bid of 50 ECU simultaneously, you win the auction because you
-        get the highest bid. The amount you have to pay is 50 ECU, and your total payoff is 30 ECU; i.e. 80 ECU - 50 ECU = 30 ECU
-        (value - rival's bid = payoff). Your rival's payoff is 0 ECU because she does not get the object, neither has to pay for it.
+        In case of a tie in both bids, the winner is randomly chosen. For example, assume you value the smartphone in 80 ECU
+        and your rival values it in 50 ECU, but you do not know it. If you choose a bid of 80 ECU and your rival choose a bid
+        of 50 ECU simultaneously, you win the auction because you get the highest bid. The amount you have to pay is 50 ECU,
+        and your total payoff is 30 ECU; i.e. 80 ECU - 50 ECU = 30 ECU (value - rival's bid = payoff). Your rival's payoff
+        is 0 ECU because she does not get the object, neither has to pay for it.
     </p>
+
     <p>
         In addition, your <strong>rival's value is not known</strong> but the value <strong>distribution is common knowledge</strong>.
         The value distribution takes <strong>equally likely values from 0 ECU to 100 ECU</strong>, in 10 units intervals.
@@ -35,16 +39,18 @@
         this signal tells you exactly your rival's value.] The signal has a cost, and its distribution is such that
         <strong>it takes equally likely values from 5 ECU to 25 ECU</strong>, in 5 units intervals.
     </p>
+
     <p>
         Let us do an example with these new features. Assume you value the smartphone in 80 ECU and your rival values it in 50 ECU,
         but you do not know it. A signal is offered to you at cost 5 ECU, and you decide buying it. [TREATMENT 1: The signal
         tells you that your rival's value is 70 ECU.] [TREATMENT 2: The signal tells you that your rival's value is 50 ECU.] If you
         choose a bid of 80 ECU and your rival choose a bid of 50 ECU simultaneously, you win the auction because you get
         the highest bid. The amount you have to pay for the smartphone is 50 ECU, and your total payoff is 25 ECU; i.e.
-        80 ECU - 50 ECU - 5 ECU = 25 ECU (value - rival's bid - signal cost = payoff). Your rival's payoff is 0 ECU if she
+        80 ECU - 50 ECU - 5 ECU = 25 ECU (value - rival's bid - signal's cost = payoff). Your rival's payoff is 0 ECU if she
         has not bought any signal, or negative if she has bought a signal (which could have taken the same value that your signal
         or not).
     </p>
+
     <p>
         An alternative example: you value the smartphone in 40 ECU and your rival values it in 90 ECU. The signal costs 10 ECU,
         and you buy it. [TREATMENT 1: The signal yields a rival's value of 30 ECU. If you bid 30 ECU and your rival bids 60 ECU
@@ -55,14 +61,20 @@
         You pay for the smartphone 0 ECU, and your total payoff is -10 ECU because you lost and you have bought a signal. Your
         rival's payoff is 60 ECU if she has not bought any signal, i.e. 90 ECU - 30 ECU = 60 ECU (value - rival's bid = payoff).]
     </p>
+
     <p>
         There is one last thing you have to know. You are <strong>getting one additional lottery ticket each time you ascend
         in the ranking of total payoffs</strong> of the experiment. Total payoffs are simply the sum of payoffs you get in each of
         the <strong>20 rounds</strong> played against random rivals. So a good performance relative to others will help you
         to win the prize.
     </p>
+
     <p>
         Now, it is time to start. Good luck!
     </p>
     </div>
 </div>
+
+{% next_button %}
+
+{% endblock %}

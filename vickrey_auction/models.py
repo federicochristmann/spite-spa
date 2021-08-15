@@ -67,7 +67,7 @@ class Player(BasePlayer):
     )
 
     signal_purchase = models.BooleanField(
-        doc="Decision of buying a signal about the rival's value",
+        doc="Decision of buying a signal about the rival's value"
     )
 
     signal_value = models.CurrencyField(
@@ -81,7 +81,7 @@ class Player(BasePlayer):
 
     is_winner = models.BooleanField(
         initial=False,
-        doc="""Indicates whether the player is the winner"""
+        doc="Indicates whether the player is the winner"
     )
 
     #Survey
@@ -102,25 +102,25 @@ class Player(BasePlayer):
 
     phone = models.IntegerField(
         doc='''Detail your phone number with the area code (it will be used to give the prize
-        to the winner)''',
+        to the lottery winner)''',
     )
 
     solidarity = models.StringField(
-        choices=[[1, '1 Strongly disagree'], [2, '2 Mildy disagree'], [3, '3 Indifferent'], [4, '4 Mildly agree'], [5, '5 Strongly agree']],
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
         doc='''Indicate to what extent you agree or disagree with the following statement: 
         I do not care about how much money I have, what concerns me is that there are people who have less money than me''',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
     envy = models.IntegerField(
-        choices=[[1, '1 Strongly disagree'], [2, '2 Mildy disagree'], [3, '3 Indifferent'], [4, '4 Mildly agree'], [5, '5 Strongly agree']],
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
         doc='''Indicate to what extent you agree or disagree with the following statement: 
         I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
     overbidding = models.StringField(
-        doc='''Have you ever bid above your own value? If you did that, why?''',
+        doc='''In the experiment, have you ever bid above your own value? If you did so, why?''',
     )
 
     bachelor = models.BooleanField(
@@ -133,8 +133,14 @@ class Player(BasePlayer):
         Maths, Physics)?''',
     )
 
-    economics = models.IntegerField(
-        choices=[[1, 'Female'], [2, 'Male']],
+    economics = models.BooleanField(
+        doc='''Have you ever studied Economics?''',
+    )
+
+    economics_level = models.IntegerField(
+        choices=[[1, 'I have not finished my Bachelor'], [2, 'I have finished my Bachelor'],
+                 [3, 'I have not finished my Master'], [4, 'I have finished my Master'],
+                 [5, 'I have not finished my Ph.D.'], [6, 'I have finished my Ph.D.']],
         doc='''If you have studied Economics, Which is your highest acquired level of studies?''',
         widget=widgets.RadioSelect
     )
