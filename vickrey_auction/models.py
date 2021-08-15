@@ -105,24 +105,6 @@ class Player(BasePlayer):
         to the lottery winner)''',
     )
 
-    solidarity = models.StringField(
-        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
-        doc='''Indicate to what extent you agree or disagree with the following statement: 
-        I do not care about how much money I have, what concerns me is that there are people who have less money than me''',
-        widget=widgets.RadioSelect
-    )
-
-    envy = models.IntegerField(
-        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
-        doc='''Indicate to what extent you agree or disagree with the following statement: 
-        I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
-        widget=widgets.RadioSelect
-    )
-
-    overbidding = models.StringField(
-        doc='''In the experiment, have you ever bid above your own value? If you did so, why?''',
-    )
-
     bachelor = models.BooleanField(
         doc='''Have you ever studied a bachelor?''',
         widget=widgets.RadioSelect
@@ -143,4 +125,22 @@ class Player(BasePlayer):
                  [5, 'I have not finished my Ph.D.'], [6, 'I have finished my Ph.D.']],
         doc='''If you have studied Economics, Which is your highest acquired level of studies?''',
         widget=widgets.RadioSelect
+    )
+
+    solidarity = models.StringField(
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        doc='''Indicate to what extent you agree or disagree with the following statement: 
+        I do not care about how much money I have, what concerns me is that there are people who have less money than me''',
+        widget=widgets.RadioSelect
+    )
+
+    envy = models.IntegerField(
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        doc='''Indicate to what extent you agree or disagree with the following statement: 
+        I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
+        widget=widgets.RadioSelect
+    )
+
+    overbidding = models.StringField(
+        doc='''In the experiment, have you ever bid above your own value? If you did so, why?''',
     )

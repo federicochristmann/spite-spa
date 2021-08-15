@@ -1,20 +1,10 @@
 {% block title %}
-    Survey
+    Survey: cont.
 {% endblock %}
 
 {% block content %}
 
-    <p>
-        Thank you for your participation! Finally, I would kindly ask you to answer the following survey.
-    </p>
-
-    {% formfield 'name' label='What is your name?' %}
-
-    <p>
-        Note: In case you change your mind and you do not want to participate in this experiment, you can ask to erase
-        your personal information by sending a mail to ``fchristm@eco.uc3m.es". If you have further doubts about the use
-        of information provided here, please write to this email.
-    </p>
+    {% formfield 'quantitative_training' label='If so, did you have a quantitative training during the program (e.g. Chemistry, Engineering, Economics, Maths, Physics...)?' %}
 
     {% next_button %}
 
