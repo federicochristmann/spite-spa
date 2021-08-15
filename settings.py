@@ -16,13 +16,13 @@ SESSION_CONFIGS = [
         "name": "vickrey_auction",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
-        "app_sequence": ["vickrey_auction"],
+        "app_sequence": ["vickrey_auction", "survey"],
     },
     #{
     #    "name": "vickrey_auction_2",
     #    "display_name": "Second price auction 2",
     #    "num_demo_participants": 2,
-    #    "app_sequence": ["vickrey_auction_2"],
+    #    "app_sequence": ["vickrey_auction_2", "survey"],
     #},
 ]
 

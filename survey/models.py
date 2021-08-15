@@ -1,12 +1,12 @@
-from otree.api import (
-    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
-    Currency as c, currency_range
-)
-import random
+from otree.api import *
+
+author = 'Federico Christmann'
+
+doc = '''Survey of player's characteristics.'''
 
 
 class Constants(BaseConstants):
-    name_in_url = 'survey'
+    name_in_url = 'Survey'
     players_per_group = None
     num_rounds = 1
 
@@ -20,35 +20,62 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    name = models.StringField(
+        doc='''What is your name?'''
+    )
 
     age = models.IntegerField(
-        label='What is your age?',
-        min=13, max=125)
+        doc='What is your age?',
+        min=12, max=100
+    )
 
     gender = models.StringField(
-        choices=['Male', 'Female', 'Other'],
-        label='What is your gender?',
-        widget=widgets.RadioSelect)
-
-    crt_bat = models.IntegerField(
-        label='''
-        A bat and a ball cost 22 dollars in total.
-        The bat costs 20 dollars more than the ball.
-        How many dollars does the ball cost?'''
+        choices=['Female', 'Male'],
+        doc='What is your gender?',
+        widget=widgets.RadioSelect
     )
 
-    crt_widget = models.IntegerField(
-        label='''
-        "If it takes 5 machines 5 minutes to make 5 widgets,
-        how many minutes would it take 100 machines to make 100 widgets?"
-        '''
+    phone = models.IntegerField(
+        doc='''Detail your phone number with the area code (it will be used to give the prize
+        to the lottery winner)''',
     )
 
-    crt_lake = models.IntegerField(
-        label='''
-        In a lake, there is a patch of lily pads.
-        Every day, the patch doubles in size.
-        If it takes 48 days for the patch to cover the entire lake,
-        how many days would it take for the patch to cover half of the lake?
-        '''
+    bachelor = models.BooleanField(
+        doc='''Have you ever studied a bachelor?''',
+        widget=widgets.RadioSelect
+    )
+
+    quantitative_training = models.BooleanField(
+        doc='''If so, did you have a quantitative training during the program (e.g. Chemistry, Engineering, Economics, 
+        Maths, Physics)?''',
+    )
+
+    economics = models.BooleanField(
+        doc='''Have you ever studied Economics?''',
+    )
+
+    economics_level = models.IntegerField(
+        choices=[[1, 'I have not finished my Bachelor'], [2, 'I have finished my Bachelor'],
+                 [3, 'I have not finished my Master'], [4, 'I have finished my Master'],
+                 [5, 'I have not finished my Ph.D.'], [6, 'I have finished my Ph.D.']],
+        doc='''If you have studied Economics, Which is your highest acquired level of studies?''',
+        widget=widgets.RadioSelect
+    )
+
+    solidarity = models.StringField(
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        doc='''Indicate to what extent you agree or disagree with the following statement: 
+        I do not care about how much money I have, what concerns me is that there are people who have less money than me''',
+        widget=widgets.RadioSelect
+    )
+
+    envy = models.IntegerField(
+        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        doc='''Indicate to what extent you agree or disagree with the following statement: 
+        I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
+        widget=widgets.RadioSelect
+    )
+
+    overbidding = models.StringField(
+        doc='''In the experiment, have you ever bid above your own value? If you did so, why?''',
     )
