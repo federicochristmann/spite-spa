@@ -16,7 +16,7 @@ SESSION_CONFIGS = [
         "name": "vickrey_auction",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
-        "app_sequence": ["vickrey_auction", "survey", "quiz"],
+        "app_sequence": ["vickrey_auction", "survey"],
     },
     #{
     #    "name": "vickrey_auction_2",

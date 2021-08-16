@@ -10,7 +10,7 @@ player can buy a costly signal about their opponent value.'''
 class Constants(BaseConstants):
     name_in_url = 'Second-price-auction'
     players_per_group = 2
-    num_rounds = 1
+    num_rounds = 20
     min_value = cu(0)
     max_value = cu(100)
     min_cost = cu(5)
@@ -72,7 +72,7 @@ class Player(BasePlayer):
         doc="Signal of the rival's value, which is true wp. K and random wp. 1-K"
     )
 
-    bid_amount = models.CurrencyField(
+    bid = models.CurrencyField(
         min=cu(0), max=cu(1000),
         doc="Amount that the player bids"
     )

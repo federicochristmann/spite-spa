@@ -9,17 +9,30 @@ class Instructions(Page):
 
 
 class Signal(Page):
+    timeout_seconds = 50
+
     form_model = 'player'
     form_fields = ['signal_purchase']
 
-    timeout_seconds = 50
-
 
 class Bid(Page):
-    form_model = 'player'
-    form_fields = ['bid_amount']
+    def is_displayed(self):
+        return self.player.signal_purchase == 0
 
     timeout_seconds = 50
+
+    form_model = 'player'
+    form_fields = ['bid']
+
+
+class BidSignal(Page):
+    def is_displayed(self):
+        return self.player.signal_purchase == 1
+
+    timeout_seconds = 50
+
+    form_model = 'player'
+    form_fields = ['bid']
 
 
 class ResultsWaitPage(WaitPage):
@@ -37,7 +50,6 @@ class TotalResults(Page):
 
     def vars_for_template(self):
         total_payoff = sum([p.payoff for p in self.player.in_all_rounds()])
-
         return {
             "player_in_all_rounds": self.player.in_all_rounds(),
             "total_payoff": total_payoff,
@@ -48,6 +60,7 @@ page_sequence = [
     Instructions,
     Signal,
     Bid,
+    BidSignal,
     ResultsWaitPage,
     Results,
     TotalResults,

@@ -23,22 +23,18 @@
 {% block content %}
 
     <p>
-        Recall that the player with the highest bid gets the object, and she pays a price equal to the rival's bid. The player
-        with the lowest bid does not get the object, nor she pays for it. [TREATMENT 1: The signal reveals your rival's value
-        half of the times.] [TREATMENT 2: The signal reveals your rival's value.] [WITHIN TREATMENT: This round you are playing
-        against a bot!]
-    </p>
-    <p>
-        You value the object in <strong>{{ player.private_value }}</strong>. If you win the auction, you have
-        a payoff of <strong>{{ player.private_value }} - second highest bid</strong>.
+        You value the object in <strong>{{ player.private_value }}</strong>.
     </p>
 
-    <div class="form-group required">
-        <label class="control-label" for="id_bid_amount">
-            Please submit a bid for the object:
-        </label>
-       {% formfields %}
-    </div>
+    <p>
+        If you win the auction, you have a payoff of <strong>{{ player.private_value }} - second highest bid</strong>.
+    </p>
+
+    <p>
+        If you lose the auction, you have a payoff of <strong>{{ Constants.min_value }}</strong>.
+    </p>
+
+    {% formfield 'bid' label='Submit your bid for the object:' %}
 
     {% next_button %}
 
