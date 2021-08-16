@@ -42,7 +42,6 @@ class Player(BasePlayer):
 
     bachelor = models.BooleanField(
         doc='''Have you ever studied a bachelor?''',
-        widget=widgets.RadioSelect
     )
 
     quantitative_training = models.BooleanField(
@@ -54,7 +53,7 @@ class Player(BasePlayer):
         doc='''Have you ever studied Economics?''',
     )
 
-    economics_level = models.IntegerField(
+    economics_level = models.StringField(
         choices=[[1, 'I have not finished my Bachelor'], [2, 'I have finished my Bachelor'],
                  [3, 'I have not finished my Master'], [4, 'I have finished my Master'],
                  [5, 'I have not finished my Ph.D.'], [6, 'I have finished my Ph.D.']],
@@ -69,7 +68,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-    envy = models.IntegerField(
+    envy = models.StringField(
         choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
         doc='''Indicate to what extent you agree or disagree with the following statement: 
         I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
