@@ -50,9 +50,22 @@ class Group(BaseGroup):
         winner = random.choice(players_with_highest_bid)
         winner.is_winner = True
         for p in players:
-            p.payoff = cu(0)
-            if p.is_winner:
-                p.payoff = (p.private_value - self.second_highest_bid)
+            if p.signal_purchase == 1:
+                p.payoff = - p.signal_cost
+                if p.is_winner:
+                    p.payoff = (p.private_value - self.second_highest_bid - p.signal_cost)
+            else:
+                p.payoff = cu(0)
+                if p.is_winner:
+                    p.payoff = (p.private_value - self.second_highest_bid)
+
+
+
+
+        #for p in players:
+        #    p.payoff = - p.signal_cost
+        #    if p.is_winner:
+        #        p.payoff = (p.private_value - self.second_highest_bid - p.signal_cost)
 
 
 class Player(BasePlayer):
@@ -72,7 +85,7 @@ class Player(BasePlayer):
         doc="Signal of the rival's value, which is true wp. K and random wp. 1-K"
     )
 
-    bid = models.CurrencyField(
+    bid_amount = models.CurrencyField(
         min=cu(0), max=cu(1000),
         doc="Amount that the player bids"
     )

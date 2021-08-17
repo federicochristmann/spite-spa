@@ -1,6 +1,13 @@
 from ._builtin import Page, WaitPage
 
 
+class MatchingWaitPage(WaitPage):
+    def is_displayed(self):
+        return self.round_number == 1
+
+    group_by_arrival_time = True
+
+
 class Instructions(Page):
     def is_displayed(self):
         return self.round_number == 1
@@ -22,7 +29,7 @@ class Bid(Page):
     timeout_seconds = 50
 
     form_model = 'player'
-    form_fields = ['bid']
+    form_fields = ['bid_amount']
 
 
 class BidSignal(Page):
@@ -32,7 +39,7 @@ class BidSignal(Page):
     timeout_seconds = 50
 
     form_model = 'player'
-    form_fields = ['bid']
+    form_fields = ['bid_amount']
 
 
 class ResultsWaitPage(WaitPage):
@@ -57,6 +64,7 @@ class TotalResults(Page):
 
 
 page_sequence = [
+    MatchingWaitPage,
     Instructions,
     Signal,
     Bid,

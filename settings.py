@@ -38,7 +38,7 @@ POINTS_CUSTOM_NAME = "ECU"
 
 ROOMS = [
     {
-        "name": "demo",
+        "name": "experiment",
         "display_name": "Experimental room",
     },
 ]
