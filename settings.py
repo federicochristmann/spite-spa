@@ -13,17 +13,17 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        "name": "vickrey_auction",
+        "name": "vickrey_auction_k_1",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
-        "app_sequence": ["vickrey_auction", "survey"],
+        "app_sequence": ["vickrey_auction_k_1", "survey"],
     },
-    #{
-    #    "name": "vickrey_auction_2",
-    #    "display_name": "Second price auction 2",
-    #    "num_demo_participants": 2,
-    #    "app_sequence": ["vickrey_auction_2", "survey"],
-    #},
+#    {
+#        "name": "vickrey_auction_k_05",
+#        "display_name": "second price auction",
+#        "num_demo_participants": 2,
+#        "app_sequence": ["vickrey_auction_k_05", "survey"],
+#    },
 ]
 
 
@@ -38,8 +38,12 @@ POINTS_CUSTOM_NAME = "ECU"
 
 ROOMS = [
     {
-        "name": "experiment",
-        "display_name": "Experimental room",
+        "name": "vickrey_auction_k_1",
+        "display_name": "Second price auction",
+    },
+    {
+        "name": "vickrey_auction_k_05",
+        "display_name": "second price auction",
     },
 ]
 

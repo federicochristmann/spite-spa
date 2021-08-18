@@ -1,0 +1,50 @@
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+
+
+{% block title %}
+    Second price auction game: bid
+{% endblock %}
+
+
+{% block content %}
+
+    <p>
+        You value the object in <strong>{{ player.private_value }}</strong>.
+    </p>
+
+    <p>
+        The signal's cost is <strong>{{ player.signal_cost }}</strong>.
+    </p>
+
+    <p>
+        The signal says that your rival's value is <strong>{{ player.signal_value }}</strong>.
+    </p>
+
+    <p>
+        If you win the auction, you have a payoff of <strong>{{ player.private_value }} - second highest bid -
+        {{ player.signal_cost }}</strong>.
+    </p>
+
+    <p>
+        If you lose the auction, you have a payoff of <strong>-{{ player.signal_cost }}</strong>.
+    </p>
+
+    {% formfield 'bid_amount' label='Submit your bid for the object:' %}
+
+    {% next_button %}
+
+{% endblock %}

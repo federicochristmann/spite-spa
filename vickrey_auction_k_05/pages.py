@@ -51,6 +51,13 @@ class Results(Page):
     timeout_seconds = 40
 
 
+#class ResultsSignal(Page):
+#    def is_displayed(self):
+#        return self.player.signal_purchase == 1
+
+#    timeout_seconds = 40
+
+
 class TotalResults(Page):
     def is_displayed(self):
         return self.round_number == 20

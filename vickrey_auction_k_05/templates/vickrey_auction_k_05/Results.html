@@ -35,7 +35,8 @@
             <th>Your bid</th>
             <th>Winning bid</th>
             <th>Second-highest bid</th>
-            <th>You pay</th>
+            <th>You pay for the object</th>
+            <th>You pay for the signal</th>
             <th>Your payoff</th>
         </tr>
 
@@ -48,7 +49,14 @@
                 {% if player.is_winner %}
                     {{ group.second_highest_bid }}
                 {% else %}
-                    {{ player.payoff }}
+                    {{ Constants.zero }}
+                {% endif %}
+            </td>
+            <td>
+                {% if player.signal_purchase %}
+                    {{ player.signal_cost }}
+                {% else %}
+                    {{ Constants.zero }}
                 {% endif %}
             </td>
             <td>{{ player.payoff }}</td>

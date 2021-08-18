@@ -4,13 +4,14 @@ import random
 author = 'Federico Christmann'
 
 doc = '''In this Second price auction, 2 players bid for an object with private values. Each
-player can buy a costly signal about their opponent value.'''
+player can buy a costly signal about their opponent value which is true w.p. K=0.5'''
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Second-price-auction'
+    name_in_url = 'second-price-auction'
     players_per_group = 2
     num_rounds = 20
+    zero = cu(0)
     min_value = cu(0)
     max_value = cu(100)
     min_cost = cu(5)
@@ -19,6 +20,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        self.group_randomly()
         for p in self.get_players():
             p.private_value = random.randrange(Constants.min_value, Constants.max_value, 10)
         for p in self.get_players():
@@ -58,14 +60,6 @@ class Group(BaseGroup):
                 p.payoff = cu(0)
                 if p.is_winner:
                     p.payoff = (p.private_value - self.second_highest_bid)
-
-
-
-
-        #for p in players:
-        #    p.payoff = - p.signal_cost
-        #    if p.is_winner:
-        #        p.payoff = (p.private_value - self.second_highest_bid - p.signal_cost)
 
 
 class Player(BasePlayer):
