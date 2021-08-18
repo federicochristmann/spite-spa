@@ -20,7 +20,6 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        self.group_randomly()
         for p in self.get_players():
             p.private_value = random.randrange(Constants.min_value, Constants.max_value, 10)
         for p in self.get_players():
@@ -30,19 +29,20 @@ class Subsession(BaseSubsession):
 
         #self.past_groups = []
 
-    #def group_by_arrival_time_method(self, waiting_players):
-    #    session = self.session
+    def group_by_arrival_time_method(self, waiting_players):
+        session = self.session
 
-    #    import itertools
+        import itertools
 
-    #    for possible_group in itertools.combinations(waiting_players, 2):
+        for possible_group in itertools.combinations(waiting_players, 2):
             # use a set, so that we can easily compare even if order is different
             # e.g. {1, 2} == {2, 1}
     #        pair_ids = set(p.id_in_subsession for p in possible_group)
     #        if pair_ids not in session.past_groups:
                 # mark this group as used, so we don't repeat it in the next round.
     #            session.past_groups.append(pair_ids)
-    #            return possible_group
+            return possible_group
+
     # randomize to treatments
     #def creating_session(self):
     #    if self.round_number == 1:

@@ -20,7 +20,6 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        self.group_randomly()
         for p in self.get_players():
             p.private_value = random.randrange(Constants.min_value, Constants.max_value, 10)
         for p in self.get_players():
