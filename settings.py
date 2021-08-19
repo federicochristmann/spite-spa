@@ -18,12 +18,12 @@ SESSION_CONFIGS = [
         "num_demo_participants": 2,
         "app_sequence": ["vickrey_auction_k_1", "survey"],
     },
-#    {
-#        "name": "vickrey_auction_k_05",
-#        "display_name": "second price auction",
-#        "num_demo_participants": 2,
-#        "app_sequence": ["vickrey_auction_k_05", "survey"],
-#    },
+    {
+        "name": "vickrey_auction_k_05",
+        "display_name": "second price auction",
+        "num_demo_participants": 2,
+        "app_sequence": ["vickrey_auction_k_05", "survey"],
+    },
 ]
 
 

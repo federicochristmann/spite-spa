@@ -12,7 +12,7 @@ class Instructions(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-    timeout_seconds = 7.5*60
+    timeout_seconds = 7*60
 
 
 class Signal(Page):
@@ -49,13 +49,6 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     timeout_seconds = 40
-
-
-#class ResultsSignal(Page):
-#    def is_displayed(self):
-#        return self.player.signal_purchase == 1
-
-#    timeout_seconds = 40
 
 
 class TotalResults(Page):

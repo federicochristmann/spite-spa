@@ -15,7 +15,7 @@ class Constants(BaseConstants):
     min_value = cu(0)
     max_value = cu(100)
     min_cost = cu(5)
-    max_cost = cu(25)
+    max_cost = cu(15)
 
 
 class Subsession(BaseSubsession):
@@ -25,23 +25,7 @@ class Subsession(BaseSubsession):
         for p in self.get_players():
             p.signal_cost = random.randrange(Constants.min_cost, Constants.max_cost, 5)
         for p in self.get_players():
-            p.signal_value = random.randrange(Constants.min_value, Constants.max_value, 10)
-
-        #self.past_groups = []
-
-    def group_by_arrival_time_method(self, waiting_players):
-        session = self.session
-
-        import itertools
-
-        for possible_group in itertools.combinations(waiting_players, 2):
-            # use a set, so that we can easily compare even if order is different
-            # e.g. {1, 2} == {2, 1}
-    #        pair_ids = set(p.id_in_subsession for p in possible_group)
-    #        if pair_ids not in session.past_groups:
-                # mark this group as used, so we don't repeat it in the next round.
-    #            session.past_groups.append(pair_ids)
-            return possible_group
+            p.signal_value = p.other_player().private_value
 
     # randomize to treatments
     #def creating_session(self):
@@ -104,3 +88,6 @@ class Player(BasePlayer):
         initial=False,
         doc="Indicates whether the player is the winner"
     )
+
+    def other_player(self):
+        return self.get_others_in_group()[0]

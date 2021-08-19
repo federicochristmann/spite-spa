@@ -15,7 +15,7 @@ class Constants(BaseConstants):
     min_value = cu(0)
     max_value = cu(100)
     min_cost = cu(5)
-    max_cost = cu(25)
+    max_cost = cu(15)
 
 
 class Subsession(BaseSubsession):
@@ -25,7 +25,9 @@ class Subsession(BaseSubsession):
         for p in self.get_players():
             p.signal_cost = random.randrange(Constants.min_cost, Constants.max_cost, 5)
         for p in self.get_players():
-            p.signal_value = random.randrange(Constants.min_value, Constants.max_value, 10)
+            p.signal_value = random.choice([p.other_player().private_value, random.randrange(Constants.min_value,
+                                                                                             Constants.max_value, 10)])
+
     # randomize to treatments
     #def creating_session(self):
     #    if self.round_number == 1:
@@ -87,3 +89,6 @@ class Player(BasePlayer):
         initial=False,
         doc="Indicates whether the player is the winner"
     )
+
+    def other_player(self):
+        return self.get_others_in_group()[0]
