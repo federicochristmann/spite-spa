@@ -66,8 +66,12 @@ ADMIN_USERNAME = "Federico Christmann"
 ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
 
 
-# Consider "", None, and "0" to be empty/false
-DEBUG = (environ.get("OTREE_PRODUCTION") in {None, "", "0"})
+# OTREE_PRODUCTION just controls whether Django runs in
+# DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
+if environ.get('OTREE_PRODUCTION') in {None, '', '0'}:
+    DEBUG = True
+else:
+    DEBUG = False
 
 DEMO_PAGE_INTRO_HTML = """Available games in this session."""
 
