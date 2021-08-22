@@ -48,6 +48,10 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
+    def vars_for_template(self):
+        other_player_payoff = self.player.other_player().payoff
+        return{"other_player_payoff": other_player_payoff}
+
     timeout_seconds = 40
 
 

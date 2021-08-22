@@ -16,16 +16,17 @@ SESSION_CONFIGS = [
         "name": "vickrey_auction_k_1",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
+        #"use_browser_bots": True,
         "app_sequence": ["vickrey_auction_k_1", "survey"],
     },
     {
         "name": "vickrey_auction_k_05",
         "display_name": "second price auction",
         "num_demo_participants": 2,
+        #"use_browser_bots": True,
         "app_sequence": ["vickrey_auction_k_05", "survey"],
     },
 ]
-
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
@@ -47,11 +48,10 @@ ROOMS = [
     },
 ]
 
-
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
 # and which are password protected:
-# - If it"s not set (the default), then the whole site is freely accessible.
+# - If it's not set (the default), then the whole site is freely accessible.
 # - If you are launching a study and want visitors to only be able to
 #   play your app if you provided them with a start link, set it to STUDY.
 # - If you would like to put your site online in public demo mode where
