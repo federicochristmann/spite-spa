@@ -13,13 +13,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        "name": "vickrey_auction_k_1",
+        "name": "vickrey_auction",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
         "app_sequence": ["vickrey_auction_k_1", "survey"],
     },
     {
-        "name": "vickrey_auction_k_05",
+        "name": "Vickrey_auction",
         "display_name": "second price auction",
         "num_demo_participants": 2,
         "app_sequence": ["vickrey_auction_k_05", "survey"],
