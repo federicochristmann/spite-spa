@@ -16,14 +16,12 @@ SESSION_CONFIGS = [
         "name": "vickrey_auction_k_1",
         "display_name": "Second price auction",
         "num_demo_participants": 2,
-        #"use_browser_bots": True,
         "app_sequence": ["vickrey_auction_k_1", "survey"],
     },
     {
         "name": "vickrey_auction_k_05",
         "display_name": "second price auction",
         "num_demo_participants": 2,
-        #"use_browser_bots": True,
         "app_sequence": ["vickrey_auction_k_05", "survey"],
     },
 ]

@@ -28,13 +28,6 @@ class Subsession(BaseSubsession):
             p.signal_value = random.choice([p.other_player().private_value, random.randrange(Constants.min_value,
                                                                                              Constants.max_value, 10)])
 
-    # randomize to treatments
-    #def creating_session(self):
-    #    if self.round_number == 1:
-    #        for group in self.get_players():
-    #            group.treatment_K = random.choices(['0.5', '1'], cum_weights=[3, 4])
-    #            print('set treatment to', group.treatment_K)
-
 
 class Group(BaseGroup):
     highest_bid = models.CurrencyField()
