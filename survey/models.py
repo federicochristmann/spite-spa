@@ -30,7 +30,7 @@ class Player(BasePlayer):
     )
 
     gender = models.StringField(
-        choices=['Female', 'Male'],
+        choices=[[1, 'Female'], [2, 'Male']],
         doc='What is your gender?',
         widget=widgets.RadioSelect
     )
@@ -62,14 +62,14 @@ class Player(BasePlayer):
     )
 
     solidarity = models.StringField(
-        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        choices=[[5, 'Strongly agree'], [4, 'Mildy agree'], [3, 'Indifferent'], [2, 'Mildly disagree'], [1, 'Strongly disagree']],
         doc='''Indicate to what extent you agree or disagree with the following statement: 
         I do not care about how much money I have, what concerns me is that there are people who have less money than me''',
         widget=widgets.RadioSelect
     )
 
     envy = models.StringField(
-        choices=[[1, 'Strongly agree'], [2, 'Mildy agree'], [3, 'Indifferent'], [4, 'Mildly disagree'], [5, 'Strongly disagree']],
+        choices=[[5, 'Strongly agree'], [4, 'Mildy agree'], [3, 'Indifferent'], [2, 'Mildly disagree'], [1, 'Strongly disagree']],
         doc='''Indicate to what extent you agree or disagree with the following statement: 
         I do not care about how much money I have, what concerns me is that there are people who have more money than me''',
         widget=widgets.RadioSelect

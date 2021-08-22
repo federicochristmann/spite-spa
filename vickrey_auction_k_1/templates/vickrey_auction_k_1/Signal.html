@@ -1,20 +1,3 @@
-<style>
-    .otree-timer {
-        display: none;
-    }
-</style>
-
-<script>
-    $(function () {
-        $('.otree-timer__time-left').on('update.countdown', function (event) {
-            if (event.offset.totalSeconds === 10) {
-                $('.otree-timer').show();
-            }
-        });
-    });
-</script>
-
-
 {% block title %}
     Second price auction game: signal
 {% endblock %}

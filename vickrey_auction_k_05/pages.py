@@ -16,7 +16,6 @@ class Instructions(Page):
 
 
 class Signal(Page):
-    timeout_seconds = 50
 
     form_model = 'player'
     form_fields = ['signal_purchase']
@@ -26,8 +25,6 @@ class Bid(Page):
     def is_displayed(self):
         return self.player.signal_purchase == 0
 
-    timeout_seconds = 50
-
     form_model = 'player'
     form_fields = ['bid_amount']
 
@@ -35,8 +32,6 @@ class Bid(Page):
 class BidSignal(Page):
     def is_displayed(self):
         return self.player.signal_purchase == 1
-
-    timeout_seconds = 50
 
     form_model = 'player'
     form_fields = ['bid_amount']
