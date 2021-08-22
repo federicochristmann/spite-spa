@@ -37,11 +37,11 @@ POINTS_CUSTOM_NAME = "ECU"
 
 ROOMS = [
     {
-        "name": "vickrey_auction_k_1",
+        "name": "va_k_1",
         "display_name": "Second price auction",
     },
     {
-        "name": "vickrey_auction_k_05",
+        "name": "va_k_05",
         "display_name": "second price auction",
     },
 ]
