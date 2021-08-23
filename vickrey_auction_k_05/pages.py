@@ -12,7 +12,7 @@ class Instructions(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-    timeout_seconds = 7*60
+    timeout_seconds = 7.5*60
 
 
 class Signal(Page):
