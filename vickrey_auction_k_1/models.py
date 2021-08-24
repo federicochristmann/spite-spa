@@ -21,9 +21,9 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def creating_session(self):
         for p in self.get_players():
-            p.private_value = random.randrange(Constants.min_value, Constants.max_value, 10)
+            p.private_value = random.randrange(Constants.min_value, Constants.max_value+cu(10), 10)
         for p in self.get_players():
-            p.signal_cost = random.randrange(Constants.min_cost, Constants.max_cost, 5)
+            p.signal_cost = random.randrange(Constants.min_cost, Constants.max_cost+cu(5), 5)
         for p in self.get_players():
             p.signal_value = p.other_player().private_value
 
